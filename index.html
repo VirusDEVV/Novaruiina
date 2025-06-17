@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Dossier de Candidature - NovaRuiina</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: #23201a url('https://www.transparenttextures.com/patterns/old-mathematics.png');
+      font-family: 'Special Elite', 'Courier New', Courier, monospace;
+      color: #2d2418;
+      overflow: hidden;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .dossier {
+      background: #f5ecd7;
+      border: 3px solid #b09b6e;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px #000a, 0 0 0 8px #b09b6e44;
+      max-width: 500px;
+      width: 95vw;
+      padding: 38px 30px 24px 30px;
+      position: relative;
+      z-index: 2;
+      margin: 32px 0;
+      opacity: 0;
+      transform: scale(0.8) rotateX(40deg);
+      animation: dossierIn 1.2s cubic-bezier(.22,1.12,.58,1) 0.3s forwards;
+    }
+    @keyframes dossierIn {
+      to {
+        opacity: 1;
+        transform: scale(1) rotateX(0deg);
+      }
+    }
+    .cachet {
+      position: absolute;
+      top: -32px; right: -32px;
+      width: 110px;
+      opacity: 0.7;
+      transform: rotate(-12deg);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .titre {
+      text-align: center;
+      font-size: 2em;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      font-family: 'Special Elite', monospace;
+      color: #a13a2f;
+      text-shadow: 0 2px 8px #fff4;
+    }
+    .sous-titre {
+      text-align: center;
+      font-size: 1.1em;
+      color: #4d3d2b;
+      margin-bottom: 24px;
+      font-family: 'Special Elite', monospace;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1.5px dashed #b09b6e55;
+    }
+    .section:last-child { border-bottom: none; }
+    .label {
+      font-weight: bold;
+      color: #a13a2f;
+      letter-spacing: 1px;
+      font-size: 1.08em;
+      margin-bottom: 2px;
+      display: block;
+      font-family: 'Special Elite', monospace;
+    }
+    .info {
+      margin-bottom: 8px;
+      font-size: 1.05em;
+      font-family: 'Special Elite', monospace;
+    }
+    .rp-box {
+      background: #ede3c6;
+      border-left: 4px solid #a13a2f;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 8px 0 0 0;
+      font-size: 1.05em;
+      font-family: 'Special Elite', monospace;
+      box-shadow: 0 2px 8px #b09b6e22;
+      color: #2d2418;
+    }
+    .footer {
+      text-align: center;
+      color: #a13a2f;
+      font-size: 1em;
+      margin-top: 18px;
+      letter-spacing: 1px;
+      font-family: 'Special Elite', monospace;
+    }
+    .signature {
+      text-align: right;
+      margin-top: 24px;
+      font-family: 'Special Elite', monospace;
+      font-size: 1.1em;
+      color: #4d3d2b;
+    }
+    /* Lampe torche */
+    #torch {
+      pointer-events: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 10;
+      mix-blend-mode: multiply;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    .torch-off { opacity: 0 !important; }
+    .sound-btn {
+      position: fixed;
+      bottom: 18px; right: 24px;
+      z-index: 20;
+      background: #a13a2f;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-family: 'Special Elite', monospace;
+      font-size: 1em;
+      box-shadow: 0 2px 8px #0005;
+      cursor: pointer;
+      opacity: 0.85;
+      transition: background 0.2s, opacity 0.2s;
+    }
+    .sound-btn:hover { background: #d44; opacity: 1; }
+    @media (max-width: 600px) {
+      .dossier { padding: 16px 4vw; }
+      .titre { font-size: 1.2em; }
+      .cachet { width: 70px; top: -18px; right: -18px; }
+      .sound-btn { right: 8px; bottom: 8px; font-size: 0.95em; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="torch"></canvas>
+  <button class="sound-btn" id="soundBtn">Activer ambiance</button>
+  <div class="dossier">
+    <img class="cachet" src="" alt="NovarRuiina Cachet">
+    <div class="titre">Dossier de Candidature</div>
+    <div class="sous-titre">Recrutement Staff — NovaRuiina</div>
+    <div class="section">
+      <span class="label">Identité du Survivant :</span>
+      <div class="info"><b>Nom RP :</b> <span>Aramis Denzel</span></div>
+      <div class="info"><b>Âge :</b> <span>27 ans</span></div>
+      <div class="info"><b>Discord :</b> <span>Virus92000.</span></div>
+    </div>
+    <div class="section">
+      <span class="label">Expériences dans le Nouveau Monde :</span>
+      <div class="rp-box">
+        <ul style="margin:0 0 0 18px;">
+          <li> <b>Ancien Helpeur</b> , <b>Modérateur</b>, <b>SuperAdmin</b> sur <b><span style="color: red;">AfterLife</span></b> (Gestion de crises, Arbitrage de conflits, Organisation d'événements RP)</li>
+          <li> <b>Modérateur sur <span style="color: red;">StoryLife WL</span></b>  (Gestion des Reports , Responsable Legal )</li>
+          <li>J'ai à peut prés 2800h sur FiveM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <span class="label">Lettre de Motivation :</span>
+      <div class="rp-box">
+        <i>
+        Bonjour,
+
+Je souhaite rejoindre le staff de votre serveur car je suis passionné par l’univers GTA RP et j’ai envie de m’investir davantage dans la communauté. J’ai déjà une bonne expérience en jeu, ce qui me permet de bien comprendre les attentes des joueurs et les règles à respecter. Je suis sérieux, à l’écoute et j’aime aider les nouveaux comme les anciens à profiter d’une bonne expérience RP.
+
+Je pense pouvoir apporter mon aide pour la gestion des situations en jeu, la modération et l’accueil des nouveaux membres. Je suis disponible régulièrement et je sais garder mon calme même dans les moments compliqués. Mon objectif est de contribuer à maintenir une bonne ambiance et à faire évoluer le serveur dans le bon sens.
+
+Merci pour votre attention !
+    </div>
+    <div class="signature">
+      — Aramis Denzel / Virus<br>
+      <span style="font-size:0.95em;color:#a13a2f;">(Candidature Staff)</span>
+    </div>
+    <div class="footer">
+      <b>NovaRuiina</b> &bull; Dossier confidentiel &bull; 2025
+    </div>
+  </div>
+  <audio id="ambiance" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_115b9e3e8b.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+    // Lampe torche effet
+    const torch = document.getElementById('torch');
+    function resizeTorch() {
+      torch.width = window.innerWidth;
+      torch.height = window.innerHeight;
+    }
+    resizeTorch();
+    window.addEventListener('resize', resizeTorch);
+
+    let torchOn = true;
+    function drawTorch(x, y) {
+      const ctx = torch.getContext('2d');
+      ctx.clearRect(0,0,torch.width,torch.height);
+      if (!torchOn) return;
+      // Effet de lumière
+      let grad = ctx.createRadialGradient(x, y, 0, x, y, 180);
+      grad.addColorStop(0, 'rgba(255,255,220,0.85)');
+      grad.addColorStop(0.2, 'rgba(255,255,200,0.25)');
+      grad.addColorStop(0.5, 'rgba(40,40,20,0.12)');
+      grad.addColorStop(1, 'rgba(30,30,20,0.92)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0,0,torch.width,torch.height);
+    }
+    document.addEventListener('mousemove', e => {
+      if (torchOn) drawTorch(e.clientX, e.clientY);
+    });
+    // Par défaut, centre la lumière
+    drawTorch(window.innerWidth/2, window.innerHeight/2);
+
+    // Toggle lampe torche avec double clic
+    torch.addEventListener('dblclick', () => {
+      torchOn = !torchOn;
+      torch.classList.toggle('torch-off', !torchOn);
+      if (!torchOn) torch.getContext('2d').clearRect(0,0,torch.width,torch.height);
+    });
+
+    // Ambiance sonore
+    const soundBtn = document.getElementById('soundBtn');
+    const ambiance = document.getElementById('ambiance');
+    let soundOn = false;
+    soundBtn.onclick = () => {
+      if (!soundOn) {
+        ambiance.volume = 0.25;
+        ambiance.play();
+        soundBtn.textContent = "Désactiver ambiance";
+        soundOn = true;
+      } else {
+        ambiance.pause();
+        soundBtn.textContent = "Activer ambiance";
+        soundOn = false;
+      }
+    };
+  </script>
+</body>
+</html>
+
